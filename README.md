@@ -1,5 +1,5 @@
 # Web Development Project - Cap
-This web app:: uses the ApiFlash API to take a high quality screenshot of a given website with a variety of parameters to allow users to share an interesting site! 
+This web app: uses the ApiFlash API to take a high quality screenshot of a given website with a variety of parameters to allow users to share an interesting site! 
 
 The following functionality is completed:
 
