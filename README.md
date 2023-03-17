@@ -10,3 +10,8 @@ The following functionality is completed:
 - [x] On a separate part of the page, display all the images the user has queried thus far
 - [x] Display whether or not your web app has hit the maximum number of queries allowed using another API call
 
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
