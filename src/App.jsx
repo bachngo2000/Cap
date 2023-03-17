@@ -11,12 +11,12 @@ function App() {
   // we want to make the form that users will use in order to establish some base qualities about their screenshots.
   // We first want to establish that there is a set of inputs that we will be asking each user to specify for their screenshot. Add these in a state variable dictionary in App.jsx
   const [inputs, setInputs] = useState({
-    URL: "",
-    Format: "",
-    No_Ads: "",
-    No_Cookie_Banners: "",
-    Width: "",
-    Height: "",
+    url: "",
+    format: "",
+    no_ads: "",
+    no_cookie_banners: "",
+    width: "",
+    height: "",
   });
 
   // We need an async function to make our API call with our newly created query, callAPI(). 
@@ -25,6 +25,18 @@ function App() {
 
   // A state variable to  keep track of all of the images we have taken
   const [prevImages, setPrevImages] = useState([]);
+
+  // a state variable to keep track of our quota values (our limit of calls we started with and how many we have left).
+  const [quota, setQuota] = useState(null);
+
+  // async function to make our API call to this quota endpoint.
+  const getQuota = async () => {
+    const response = await fetch("https://api.apiflash.com/v1/urltoimage/quota?access_key=" + ACCESS_KEY);
+    const result = await response.json();
+  
+    setQuota(result);
+  }
+
 
 
   // In our callAPI() function, we will make a fetch call with await, and save the response as a simple json since we added that nice response_type=json parameter to our query string. (Feel free to include console.log(json); if you would like to see what our API gives us back)
@@ -43,6 +55,7 @@ function App() {
       setCurrentImage(json.url);
       setPrevImages((images) => [...images, json.url]);
       reset();
+      getQuota();
     }
   }
 
@@ -134,6 +147,15 @@ function App() {
         </p>
         <Gallery images={prevImages} />
       </div>
+
+      {quota ? (
+        <p className="quota">
+          {" "}
+          Remaining API calls: {quota.remaining} out of {quota.limit}
+        </p>
+        ) : (
+        <p></p>
+      )}
 
       <br></br>
 
