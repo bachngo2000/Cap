@@ -1,7 +1,8 @@
 # Web Development Project - Cap
 This web app: uses the ApiFlash API to take a high quality screenshot of a given website with a variety of parameters to allow users to share an interesting site! 
+By using this web app, users can conveniently and safely take a look at a website's interface before visiting it, as long as they know its name!
 
-The following functionality is completed:
+## The following functionality is completed:
 
 - [x] Make a static API call using async/await and save the results to a state variable
 - [x] Be able to add and edit query parameters for API calls
